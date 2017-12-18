@@ -1,0 +1,15 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "workshop-pipeline"
+  annotations:
+    pipeline.alpha.openshift.io/uses: '[{"name": "workshop-php", "kind": "DeploymentConfig"}]'
+spec:
+  source:
+    type: "Git"
+    git:
+      uri: "http://github.com/<seu-usuario>/workshop-php.git"
+  strategy:
+    type: "JenkinsPipeline"
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: "pipeline/jenkins-pipeline.groovy"
