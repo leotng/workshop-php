@@ -1,7 +1,7 @@
 node('maven') {
     stage('build') {
         echo 'building app :)'
-        openshiftBuild(buildConfig: 'workshop-php', showBuildLogs: 'true')
+        openshiftBuild(buildConfig: 'my-php', showBuildLogs: 'true')
     }
     stage('verify') {
         echo 'dummy verification....'
